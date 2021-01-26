@@ -1,9 +1,9 @@
 package application;
 
-import model.entities.MyComparator;
 import model.entities.Product;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -16,7 +16,14 @@ public class Program {
                 new Product("Notebook", 1200.00),
                 new Product("Tablet", 450.00));
 
-        list.sort(new MyComparator());
+        Comparator<Product> comp = new Comparator<>() {
+            @Override
+            public int compare(Product p1, Product p2) {
+                return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+            }
+        };
+
+        list.sort(comp);
 
         for (Product p : list) {
             System.out.println(p);
