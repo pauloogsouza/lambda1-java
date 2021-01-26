@@ -1,9 +1,9 @@
 package application;
 
+import model.entities.MyComparator;
 import model.entities.Product;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -16,9 +16,7 @@ public class Program {
                 new Product("Notebook", 1200.00),
                 new Product("Tablet", 450.00));
 
-
-        Collections.sort(list);
-
+        list.sort(new MyComparator());
 
         for (Product p : list) {
             System.out.println(p);
